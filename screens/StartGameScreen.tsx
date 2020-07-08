@@ -13,8 +13,8 @@ const StartGameScreen: React.FC = (props) => {
                 <TextInput />
 {/*                 //I use 1 style for both buttons */}
                 <View style={styles.buttonContainer}>
-                    <Button title="Reset" onPress={() => { }}></Button>
-                    <Button title="Confirm" onPress={() => { }}></Button>
+                    <View style={styles.buttonStyle}><Button title="Reset" onPress={() => { }}></Button></View>
+                    <View style={styles.buttonStyle}><Button title="Confirm" onPress={() => { }}></Button></View>
                 </View>
             </Card>
         </View>
@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-between',
         paddingHorizontal: 15
+    },
+    buttonStyle: { 
+        
 
     }
 
