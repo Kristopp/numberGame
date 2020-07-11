@@ -1,5 +1,5 @@
 export default {
-    primary: '#FF851B',
-    buttonCon: '#001f3f',
-    buttonCancel: '#2ECC40'
+    primary: '#E6AF2E',
+    buttonCon: '#3D348B',
+    buttonCancel: '#BEB7A4'
 }

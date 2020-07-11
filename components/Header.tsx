@@ -3,9 +3,10 @@ import { View, Text, StyleSheet } from 'react-native'
 import Colors from '../constants/colors'
 
 export interface Props {
-    title: string;
-    headrTitle: object;
-    header: object;
+    title?: string;
+    headrTitle?: object;
+    header?: object;
+    color?: string;
 }
 
 const Header: React.FC<Props> = (props) => {

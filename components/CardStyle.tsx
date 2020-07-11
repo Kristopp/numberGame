@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native'
 
 //This compnents is reusable style
 export interface Props {
-    style: object
+    style?: object
 }
 
 const Card: React.FC<Props> = props => { 

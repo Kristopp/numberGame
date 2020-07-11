@@ -2,13 +2,12 @@ import React from 'react';
 import { TextInput, StyleSheet } from 'react-native'
 
 export interface Props { 
-input: object;
-style: object;
+style?: object;
 } 
 
 const Input: React.FC<Props> = props => {
     return ( 
-        <TextInput style={{...styles.input, ...props.style}}></TextInput>
+        <TextInput {...props} style={{...styles.input, ...props.style}}></TextInput>
     )
 }
 
