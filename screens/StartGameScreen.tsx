@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard,Alert } from 'react-native'
+import { View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native'
+
 import Card from '../components/CardStyle'
 import Colors from '../constants/colors'
 import Input from '../components/Input'
@@ -23,16 +24,17 @@ const StartGameScreen: React.FC = (props) => {
         setEnterdValue(inputNumbers.replace(/[^0-9]/g, ''))
     }
 
-    const resetHandler = () => { 
+    const resetHandler = () => {
         setEnterdValue('');
         setLastConf(false)
-    } 
-    const confirmInputHandler = () => { 
+    }
+    const confirmInputHandler = () => {
         const trueNumber = parseInt(enterValue);
-        if(isNaN(trueNumber) || trueNumber <= 0 ||trueNumber > 99 ){ 
+        if (isNaN(trueNumber) || trueNumber <= 0 || trueNumber > 99) {
             Alert.alert(
-                'Invalid input','Add number between 1-99', [{ text: 'Okay', style: 'destructive', onPress: resetHandler 
-            }])
+                'Invalid input', 'Add number between 1-99', [{
+                    text: 'Okay', style: 'destructive', onPress: resetHandler
+                }])
             return
 
         }
@@ -43,17 +45,17 @@ const StartGameScreen: React.FC = (props) => {
     }
 
     let confirmedOutput;
-    if (lastConf) { 
-    confirmedOutput = 
-    //We use CardStle as resuable component and there we use custom component
-    <Card style={styles.summaryContainer}>
-        <Text>U chose!!</Text>
-    <NumberContainer>{selectedNumber}</NumberContainer>
-    <Button title="Start Game"></Button>
-    </Card>
+    if (lastConf) {
+        confirmedOutput =
+            //We use CardStle as resuable component and there we use custom component
+            <Card style={styles.summaryContainer}>
+                <Text>U chose!!</Text>
+                <NumberContainer>{selectedNumber}</NumberContainer>
+                <Button title="Start Game" onPress={() => props.onStartGame(selectedNumber)}></Button>
+            </Card>
     }
     return (
-        <TouchableWithoutFeedback onPress={() => { 
+        <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen}>
@@ -71,7 +73,7 @@ const StartGameScreen: React.FC = (props) => {
                     {/*                 //I use 1 style for both buttons */}
                     <View style={styles.buttonContainer}>
                         <View style={styles.buttonStyle}><Button title="Reset" onPress={resetHandler} color={Colors.buttonCancel}></Button></View>
-                        <View style={styles.buttonStyle}><Button title="Confirm" onPress={confirmInputHandler } color={Colors.buttonCon}></Button></View>
+                        <View style={styles.buttonStyle}><Button title="Confirm" onPress={confirmInputHandler} color={Colors.buttonCon}></Button></View>
                     </View>
                 </Card>
                 {confirmedOutput}
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
         width: 60,
         textAlign: 'center',
     },
-    summaryContainer: { 
+    summaryContainer: {
         marginTop: 20
     }
 
